@@ -1,0 +1,42 @@
+/* Hiệu ứng: thẻ nổi lên khi rê chuột */
+section {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Danh sách: mỗi mục đổi màu khi rê chuột */
+li {
+  padding: 4px 0;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+li:hover {
+  color: #2d6cdf;
+  padding-left: 8px;
+}
+
+/* Tiêu đề header: chữ xuất hiện mờ dần khi tải trang */
+header h1 {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer: gạch chân nhẹ phía trên */
+footer {
+  border-top: 1px solid #d5dbe1;
+  margin-top: 30px;
+}
