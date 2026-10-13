@@ -1,0 +1,80 @@
+/* Header: nền chuyển màu động */
+header {
+  background: linear-gradient(120deg, #2d6cdf, #7b4dd6, #e0562d, #2d6cdf);
+  background-size: 300% 300%;
+  animation: headerFlow 12s ease infinite;
+}
+
+@keyframes headerFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tiêu đề phụ trong thẻ: gạch chân chạy ra khi rê chuột vào thẻ */
+section h2 {
+  position: relative;
+  display: inline-block;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: #2d6cdf;
+  transition: width 0.3s ease;
+}
+
+section:hover h2::after {
+  width: 100%;
+}
+
+/* Danh sách: dấu đầu dòng hình tròn nhỏ thay cho chấm mặc định */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #2d6cdf;
+}
+
+/* Các thẻ xuất hiện lần lượt khi tải trang */
+section {
+  opacity: 0;
+  animation: slideUp 0.6s ease forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0.2s; }
+section:nth-of-type(2) { animation-delay: 0.5s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chữ được bôi đen có màu riêng */
+::selection {
+  background: #2d6cdf;
+  color: white;
+}
+
+/* Cuộn trang mượt */
+html {
+  scroll-behavior: smooth;
+}
